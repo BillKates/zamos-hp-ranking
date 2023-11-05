@@ -1,0 +1,53 @@
+/* ActivityInfo.css */
+.activity-info-container {
+  text-align: center;
+}
+
+.info-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #0074b8;
+}
+
+.rankings-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ranking-column {
+  flex: 1;
+  text-align: center;
+}
+
+.ranking-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.ranking-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.player-name {
+  font-weight: 600;
+}
+
+.player-value {
+  font-weight: 400;
+}

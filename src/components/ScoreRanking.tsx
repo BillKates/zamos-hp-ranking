@@ -1,3 +1,4 @@
+// コンポーネントの説明を追加
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
@@ -7,7 +8,6 @@ const ScoreRanking: React.FC = () => {
 
   return (
     <div>
-      <h2>得点王ランキング</h2>
       <ul>
         {scoreRanking.map((player: any) => (
           <li key={player.name}>

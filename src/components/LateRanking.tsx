@@ -1,3 +1,4 @@
+// コンポーネントの説明を追加
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
@@ -7,7 +8,6 @@ const LateRanking: React.FC = () => {
 
   return (
     <div>
-      <h2>遅刻王ランキング</h2>
       <ul>
         {lateRanking.map((user: any) => (
           <li key={user.name}>
