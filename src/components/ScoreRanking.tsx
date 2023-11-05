@@ -1,20 +1,20 @@
-// コンポーネントの説明を追加
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
 
-const ScoreRanking: React.FC = () => {
-  const scoreRanking = useSelector((state: RootState) => state.rankings.scoreRanking);
+interface ScoreRankingProps {
+  rankingData: { name: string; value: number }[];
+}
 
+const ScoreRanking: React.FC<ScoreRankingProps> = ({ rankingData }) => {
   return (
     <div>
-      <ul>
-        {scoreRanking.map((player: any) => (
-          <li key={player.name}>
-            {player.name}: {player.score}点
+      <h2 className="ranking-title">得点王ランキング</h2>
+      <ol className="ranking-list">
+        {rankingData.map((player, index) => (
+          <li key={player.name} className="ranking-item">
+            {index + 1}位: {player.name} ({player.value}点)
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };

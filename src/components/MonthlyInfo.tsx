@@ -1,8 +1,9 @@
-// MonthlyInfo.tsx
 import React from 'react';
 import { MONTHLY_TEXT } from './constants';
 import './ActivityInfo.css';
-import Ranking from './Ranking';
+import ScoreRanking from './ScoreRanking';
+import LateRanking from './LateRanking';
+import KindRanking from './KindRanking';
 
 interface MonthlyInfoProps {
   currentMonth: string;
@@ -11,7 +12,7 @@ interface MonthlyInfoProps {
   MkindRanking: { name: string; value: number }[];
 }
 
-const MonthlyInfo: React.FC<MonthlyInfoProps> = ({
+const YearlyInfo: React.FC<MonthlyInfoProps> = ({
   currentMonth,
   MscoreRanking,
   MlateRanking,
@@ -21,18 +22,18 @@ const MonthlyInfo: React.FC<MonthlyInfoProps> = ({
     <div className="activity-info-container">
       <h1 className="info-title">{MONTHLY_TEXT}({currentMonth})</h1>
       <div className="rankings-container">
-        <div className="ranking-column">
-          <Ranking title="得点王ランキング" rankingData={MscoreRanking} />
+      <div className="ranking-column">
+          <ScoreRanking rankingData={MscoreRanking} />
         </div>
         <div className="ranking-column">
-          <Ranking title="遅刻回数ランキング" rankingData={MlateRanking} />
+          <LateRanking rankingData={MlateRanking} />
         </div>
         <div className="ranking-column">
-          <Ranking title="送迎回数ランキング" rankingData={MkindRanking} />
+          <KindRanking rankingData={MkindRanking} />
         </div>
       </div>
     </div>
   );
 }
 
-export default MonthlyInfo;
+export default YearlyInfo;

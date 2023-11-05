@@ -1,20 +1,20 @@
-// コンポーネントの説明を追加
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
 
-const LateRanking: React.FC = () => {
-  const lateRanking = useSelector((state: RootState) => state.rankings.lateRanking);
+interface LateRankingProps {
+  rankingData: { name: string; value: number }[];
+}
 
+const LateRanking: React.FC<LateRankingProps> = ({ rankingData }) => {
   return (
     <div>
-      <ul>
-        {lateRanking.map((user: any) => (
-          <li key={user.name}>
-            {user.name}: 遅刻{user.lateCount}回
+      <h2 className="ranking-title">遅刻王ランキング</h2>
+      <ol className="ranking-list">
+        {rankingData.map((player, index) => (
+          <li key={player.name} className="ranking-item">
+            {index + 1}位: {player.name} ({player.value}点)
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };

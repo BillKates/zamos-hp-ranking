@@ -1,8 +1,9 @@
-// LastActivityInfo.tsx
 import React from 'react';
 import { LAST_ACTIVITY_TEXT } from './constants';
 import './ActivityInfo.css';
-import Ranking from './Ranking';
+import ScoreRanking from './ScoreRanking';
+import LateRanking from './LateRanking';
+import KindRanking from './KindRanking';
 
 interface LastActivityInfoProps {
   lastActivityDate: string;
@@ -22,13 +23,13 @@ const LastActivityInfo: React.FC<LastActivityInfoProps> = ({
       <h1 className="info-title">{LAST_ACTIVITY_TEXT}({lastActivityDate})</h1>
       <div className="rankings-container">
         <div className="ranking-column">
-          <Ranking title="得点王ランキング" rankingData={scoreRanking} />
+          <ScoreRanking rankingData={scoreRanking} />
         </div>
         <div className="ranking-column">
-          <Ranking title="遅刻回数ランキング" rankingData={lateRanking} />
+          <LateRanking rankingData={lateRanking} />
         </div>
         <div className="ranking-column">
-          <Ranking title="送迎回数ランキング" rankingData={kindRanking} />
+          <KindRanking rankingData={kindRanking} />
         </div>
       </div>
     </div>

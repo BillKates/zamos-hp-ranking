@@ -1,22 +1,21 @@
-// コンポーネントの説明を追加
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
 
-const KindRanking: React.FC = () => {
-  const kindRanking = useSelector((state: RootState) => state.rankings.kindRanking);
+interface KindRankingProps {
+  rankingData: { name: string; value: number }[];
+}
 
+const KindRanking: React.FC<KindRankingProps> = ({ rankingData }) => {
   return (
     <div>
-      <ul>
-        {kindRanking.map((user: any) => (
-          <li key={user.name}>
-            {user.name}: 優しさ{user.kindnessCount}ポイント
+      <h2 className="ranking-title">送迎回数ランキング</h2>
+      <ol className="ranking-list">
+        {rankingData.map((player, index) => (
+          <li key={player.name} className="ranking-item">
+            {index + 1}位: {player.name} ({player.value}点)
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
-
 export default KindRanking;

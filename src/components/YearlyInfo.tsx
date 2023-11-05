@@ -1,8 +1,9 @@
-// YearlyInfo.tsx
 import React from 'react';
 import { YEARLY_TEXT } from './constants';
 import './ActivityInfo.css';
-import Ranking from './Ranking';
+import ScoreRanking from './ScoreRanking';
+import LateRanking from './LateRanking';
+import KindRanking from './KindRanking';
 
 interface YearlyInfoProps {
   currentYear: string;
@@ -21,14 +22,14 @@ const YearlyInfo: React.FC<YearlyInfoProps> = ({
     <div className="activity-info-container">
       <h1 className="info-title">{YEARLY_TEXT}({currentYear})</h1>
       <div className="rankings-container">
-        <div className="ranking-column">
-          <Ranking title="得点王ランキング" rankingData={YscoreRanking} />
+      <div className="ranking-column">
+          <ScoreRanking rankingData={YscoreRanking} />
         </div>
         <div className="ranking-column">
-          <Ranking title="遅刻回数ランキング" rankingData={YlateRanking} />
+          <LateRanking rankingData={YlateRanking} />
         </div>
         <div className="ranking-column">
-          <Ranking title="送迎回数ランキング" rankingData={YkindRanking} />
+          <KindRanking rankingData={YkindRanking} />
         </div>
       </div>
     </div>
